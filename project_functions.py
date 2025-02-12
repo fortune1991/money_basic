@@ -104,3 +104,92 @@ def summary(vaults, pots):
                     print()
                 else:
                     continue
+
+def create_user():
+    print_slow("Now firstly, what is your name?: ")
+    username = input()
+    user = User(username)
+    print("")
+    return user
+
+def create_pot(x, vault):
+    
+    # Collect pot name
+    print()
+    print_slow("What is your preferred name for the pot?: ")
+    pot_name = input()
+    print()
+
+    # Collect pot id
+    pot_id = x
+
+    # Collect start date data and create date object
+    print_slow("Excellent. Now we'll define when the pot will be in use. Please note, all date input values must be in the format DD/MM/YY")
+    print()
+    print()
+
+    start_date = collect_date("What is the start date that this pot will be active?: ")
+
+    # Collect end date data and create date object
+    print()
+    end_date = collect_date("What is the end date that this pot will be active?: ")
+
+    # Collect pot amount
+    print()
+    print_slow("What is the amount of money in the pot?: ")
+    while True:
+        amount = int_validator()
+        if amount > 0:
+            break
+        else:
+            print("amount must be greater than 0") 
+
+    #Input all information into the Class
+    
+    pot = Pot(pot_id=pot_id, pot_name=pot_name, start=start_date, end=end_date, vault=vault, amount=amount)
+    
+    if pot:
+        print_slow("Thanks, your pot has been created succesfully")
+        print()
+        print()
+    else:
+        print_slow("ERROR: pot not created succesfully")
+    
+    return pot
+
+def create_vault(x, user):
+    
+    # Collect vault name
+    print()
+    print_slow("What is your preferred name for the vault?: ")
+    vault_name = input()
+    print()
+
+    # Collect vault id
+    vault_id = x
+
+    # Collect start date data and create date object
+    print_slow("Excellent. Now we'll define when the vault will be in use. Please note, all date input values must be in the format DD/MM/YY")
+    print()
+    print()
+
+    start_date = collect_date("What is the start date that this vault will be active?: ")
+
+    # Collect end date data and create date object
+    print()
+    end_date = collect_date("What is the end date that this vault will be active?: ")
+
+
+    #Input all information into the Class
+    
+    vault = Vault(vault_id=vault_id, vault_name=vault_name, start=start_date, end=end_date, user=user)
+    
+    if vault:
+        print()
+        print_slow("Thanks, your vault has been created succesfully")
+        print()
+        print()
+    else:
+        print_slow("ERROR: vault not created succesfully")
+    
+    return vault
