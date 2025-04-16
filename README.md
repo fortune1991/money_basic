@@ -18,7 +18,7 @@ At this stage, the primary development focus was ensuring that these objects int
 ## Code Structure  
 The codebase is organized into three main files:  
 
-- **`project.py`** – Contains the main function along with three additional user-defined functions, as required by CS50.  
+- **`project.py`** – Contains the main function along with three additional user-defined functions. 
 - **`project_classes.py`** – Houses all class definitions and associated methods.  
 - **`project_functions.py`** – Includes supplementary user-defined methods. This separation enhances code maintainability.
 
