@@ -29,9 +29,9 @@ The next phase of development aims to expand its functionality into **budget for
 
 Further to the database integration, I plan to develop the project as below:  
 
-1. Additional features provided for "Forecasting", to predict future expenditure and it's impact on budgets 
-2. Use Grafana to provide realtime analytics from the database
-3. Devoloping the programme as a RESTFUL API using the Flask framework. This will be deployed and hosted on AWS.
+1. **Additional features** provided for "Forecasting", to predict future expenditure and it's impact on budgets 
+2. Use **Grafana** to provide realtime analytics from the database
+3. Devoloping the programme as a **RESTFUL API** using the Flask framework. This will be deployed and hosted on AWS.
 4. Developing a **web application** for broader accessibility, using the Flask Framework. This will be deployed and hosted on AWS.
  
 Through these iterations, I hope to explore different disciplines in computer science and continue my learning journey beyond CS50.  
