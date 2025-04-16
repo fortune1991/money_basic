@@ -20,7 +20,18 @@ The codebase is organized into three main files:
 
 - **`project.py`** – Contains the main function along with three additional user-defined functions, as required by CS50.  
 - **`project_classes.py`** – Houses all class definitions and associated methods.  
-- **`project_functions.py`** – Includes supplementary user-defined methods. This separation enhances code maintainability.  
+- **`project_functions.py`** – Includes supplementary user-defined methods. This separation enhances code maintainability.
+
+## Installation & Setup
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/fortune1991/money_basic.git
+   cd money-pots
+
+2. **Run the application**:
+    ```bash
+    python3 project.py
 
 ## Future Development  
 Currently, the program is implemented in its simplest form, primarily modeling interactions between transactions, pots, and vaults. Some additional data, such as transaction dates, is collected but not yet integrated into the logic.  
