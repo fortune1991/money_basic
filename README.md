@@ -27,7 +27,7 @@ The codebase is organized into three main files:
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/fortune1991/money_basic.git
-   cd money-pots
+   cd money_basic
 
 2. **Run the application**:
     ```bash
