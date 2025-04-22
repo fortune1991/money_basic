@@ -1,10 +1,9 @@
 import datetime
 from project_classes import User, Vault, Pot, Transaction
-from project_functions import submit_transaction, print_slow, int_validator, collect_date, summary, create_pot, create_user, create_vault
+from project_functions import submit_transaction, print_slow, print_slow_nospace, int_validator, collect_date, summary, create_pot, create_user, create_vault
 from time import sleep
 
 def main():
-
     print_slow("""
 
 Welcome to Money Pots, your savings and budgeting calculator.
@@ -31,28 +30,26 @@ the program closes.
 Please note: This program does not store data permanently. Once you exit, all 
 Vault and Pot data will be lost.
 
-We hope you enjoy using Money Pots!
-    """)
+We hope you enjoy using Money Pots!""")
     
     # Create a User object
-    print()
     user = create_user()
 
     # Create a Vault object with valid data
-    print_slow(f"Hi {user.username}, let me help you create some vaults. How many do you want to create?: ")
+    print_slow(f"\nHi {user.username}, let me help you create some vaults. How many do you want to create?: ")
     no_vaults = int_validator()
     vaults = {}
     
     try:
         for x in range(0, no_vaults):
-            print(f"Vault {x+1}")
+            print_slow(f"\nVault {x+1}")
             vaults["vault_{0}".format(x)] = create_vault(x, user)
     
     except ValueError as e:  
-        print(f"Error: {e}")
+        print_slow(f"Error: {e}")
 
     except Exception as e:  
-        print(f"An unexpected error occurred: {e}")
+        print_slow(f"An unexpected error occurred: {e}")
 
     # Create Pot objects with valid data
     print_slow("Now, let me help you create some pots. How many do you want to create?: ")
@@ -62,8 +59,7 @@ We hope you enjoy using Money Pots!
     while True:
         try:
             for x in range(0, no_pots):
-                print(f"Pot {x+1}")
-                print()
+                print_slow(f"\nPot {x+1}")
                 
                 while True: 
                     print_slow("What vault should this pot be assigned to?: ")
@@ -80,47 +76,38 @@ We hope you enjoy using Money Pots!
                         pots[f"pot_{x}"] = create_pot(x, selected_vault)
                         break
                     else:
-                        print(f"Vault '{vault_input}' not found. Please enter a valid vault name.")
-                        print()
+                        print_slow(f"Vault '{vault_input}' not found. Please enter a valid vault name.")
+                        
             break
         
         except ValueError as e:  
-            print(f"Error: {e}")
-            print()
+            print_slow(f"Error: {e}")
 
         except Exception as e:  
-            print(f"An unexpected error occurred: {e}")
-            print()
+            print_slow(f"An unexpected error occurred: {e}")
 
     # Summary of the vaults and pots values
     print_slow("See below list of vaults and their summed values")
-    print()
     summary(vaults, pots)
-    print()
     
-     # Loop until exit
+    # Loop until exit
 
     while True:
         print_slow('Now, I await your commands to proceed. Please type: \n\n "Transaction" to submit a new transaction, \n "Summary" to get a report of vault/pot values, or \n "Exit" to terminate the programme')
-        print()
-        print()
         action = input()
-        print()
-
+        
         if action == "Transaction":
     
         # Submit Transactions
 
-            print_slow("Excellent. Now, let me help you create a new transaction.")
-            print()
+            print_slow("\nExcellent. Now, let me help you create a new transaction.")
             transactions = {}
             no_transactions = 1
             
             while True:
                 try:
                     for x in range(no_transactions):
-                        print(f"Transaction {x+1}")
-                        print()
+                        print_slow(f"Transaction {x+1}")
                         
                         while True: 
                             print_slow("What pot should this pot be assigned to?: ")
@@ -138,42 +125,29 @@ We hope you enjoy using Money Pots!
                                 selected_pot.pot_value()
                                 break
                             else:
-                                print(f"pot '{vault_input}' not found. Please enter a valid vault name.")
-                                print()
+                                print_slow(f"pot '{vault_input}' not found. Please enter a valid vault name.")
+                                
                     break
                 
                 except ValueError as e:  
-                    print(f"Error: {e}")
-                    print()
-
+                    print_slow(f"Error: {e}")
+                    
                 except Exception as e:  
-                    print(f"An unexpected error occurred: {e}")
-                    print()
-            
-            print()
+                    print_slow(f"An unexpected error occurred: {e}")
+                    
 
         # Print Summary
-
-
         elif action == "Summary":
-
+            print("")
             summary(vaults, pots)
-            print()
-
+            
         # Exit
-
         elif action == "Exit":
             print_slow("OK, the program will now terminate. See final values of the vaults and pots below. Thanks for using Money Pots!")
-            print()
             summary(vaults,pots)
-            print()
             exit()
-
         else:
             print_slow("Invalid command. Please try again")
-            print()
-        
-        
 
 if __name__ == "__main__":
     main()
